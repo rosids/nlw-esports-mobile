@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react';
 import { FlatList, Image } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
+import { REACT_APP_API_URL } from '@env';
+
 import logoImg from '../../assets/logo-nlw-esports.png';
 
 import { Background } from '../../components/Background';
@@ -21,7 +23,7 @@ export function Home() {
 
   useEffect(() => {
     const fetchGames = async () => {
-      const response = await fetch('http://192.168.1.9:3333/games');
+      const response = await fetch(`${REACT_APP_API_URL}/games`);
       const games = await response.json();
       setGames(games);
     };
